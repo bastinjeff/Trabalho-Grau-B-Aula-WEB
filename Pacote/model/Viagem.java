@@ -9,6 +9,25 @@ public class Viagem {
 	private List<String> DiasSemana;
 	private String Modalidade;
 	
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+	
+	public void setEmpresa(String NomeEmpresa) {
+		empresa = new Empresa();
+		empresa.setNome_fantasia(NomeEmpresa);		
+	}
+	
+	public Rota getRota() {
+		return rota;
+	}
+	
+	public void setRota(String Chegada, String Saida) {
+		rota = new Rota();
+		rota.setChegada(Chegada);
+		rota.setSaida(Saida);
+	}
+	
 	public String getHora() {
 		return Hora;
 	}

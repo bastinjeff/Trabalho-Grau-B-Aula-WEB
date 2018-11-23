@@ -7,12 +7,21 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 public class Usuario {
+	private String login;
 	private String Nome;
 	private String Email;
 	private String CPF;
 	private String Telefone;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar DataNascimento; 
+	
+	
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	
 	public String getNome() {
 		return Nome;
