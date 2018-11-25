@@ -1,0 +1,163 @@
+html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      min-height: 600px;
+    }
+    .class-header {
+      position: absolute;
+      width: 100%;
+      border-image-source: none;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+      border-color: transparent;
+      background-color: transparent;
+      height: 142px;
+      background-image: -webkit-linear-gradient(0deg, rgb(248, 249, 253) 0%, rgb(160, 160, 160) 99%);
+      left: 0px;
+      top: 0px;
+    }
+    .class-logo {
+      cursor: pointer;
+      position: absolute;
+      width: 300px;
+      height: 97px;
+      left: 0px;
+      top: 0px;
+    }
+    a {
+      color: rgb(0, 0, 0);
+    }
+    .class-entrar-cadastrar {
+      list-style: none;
+      float: left;
+      position: absolute;
+      top: 0px;
+      width: 155px;
+      height: 29px;
+      right: 30px;
+      font-family: Roboto;
+      font-weight: bold;
+      text-align: start;
+    }
+    .class-entrar-cadastrar li {
+      position: relative;
+      float: left;
+    }
+    .class-entrar-cadastrar li a {
+      text-decoration: none;
+      padding: 5px 10px;
+      display: block;
+    }
+    .class-entrar-cadastrar li a:hover {
+      background: rgb(51, 51, 51);
+      color: rgb(255, 255, 255);
+    }
+    .class-entrar-cadastrar li ul {
+      position: absolute;
+      top: 25px;
+      display: none;
+    }
+    .class-entrar-cadastrar li:hover ul {
+      display: block;
+    }
+    .class-entrar-cadastrar li ul li {
+      display: block;
+      width: 100px;
+      margin-left: -40px;
+    }
+    .class-input {
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 25px;
+      width: 263px;
+      height: 35px;
+      border-style: solid;
+      border-radius: 7px;
+      margin: 0px auto;
+      position: absolute;
+    }
+    .class-form-consulta {
+      width: 100%;
+      position: absolute;
+      left: 0px;
+      min-width: 300px;
+      top: 172px;
+      height: 340px;
+    }
+    .class-input-origem {
+      position:absolute;
+      left: 72px;
+      top: 74px;
+    }
+    .class-input-destino {
+      position:absolute;
+      left: 477px;
+      top:74px;
+    }
+    .class-input-ida {
+      position:absolute;
+      left: 72px;
+      top: 196px;
+    }
+    .class-input-volta {
+      position:absolute;
+      left: 477px;
+      top: 196px;
+    }
+    .class-submit-consultar {
+      cursor: pointer;
+      position: absolute;
+      left: 639px;
+      top: 276px;
+      border-radius: 6px;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .class-form-login {
+      position: absolute;
+      width: 100%;
+      left: 0px;
+      min-width: 300px;
+      place-items: center;
+      justify-content: center;
+      display: flex;
+      top: 164px;
+      height: 331px;
+    }
+    .class-login-titulo {
+      position: absolute;
+      font-family: "Secular One";
+      font-weight: bold;
+      top: 13px;
+    }
+    .class-input-senha {
+      top: 176px;
+    }
+    .class-input-email {
+      top: 98px;
+    }
+    .class-submit-entrar {
+      cursor: pointer;
+      border-radius: 6px;
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 18px;
+      position: absolute;
+      margin-left: 101px;
+      top: 230px;
+    }
+    .class-footer {
+      width: 100%;
+      height: 50px;
+      background-image: -webkit-radial-gradient(center center, circle cover, rgb(248, 249, 253) 0%, rgb(160, 160, 160) 99%);
+      background-color: transparent;
+      position: fixed;
+      bottom: 0px;
+      left: 0px;
+    }
