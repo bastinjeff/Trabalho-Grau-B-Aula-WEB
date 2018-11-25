@@ -1,22 +1,40 @@
 package Pacote.model;
 
 public class Rota {
-	private String Saida;
-	private String Chegada;
+	private String CidadeSaida;
+	private String CidadeChegada;
+	private String UFSaida;
+	private String UFChegada;
 	
-	public String getSaida() {
-		return Saida;
+	public String getCidadeSaida() {
+		return CidadeSaida;
 	}
 	
-	public void setSaida(String Saida) {
-		this.Saida = Saida;
+	public void setCidadeSaida(String CidadeSaida) {
+		this.CidadeSaida = CidadeSaida;
 	}
 	
-	public String getChegada() {
-		return Chegada;
+	public String getCidadeChegada() {
+		return CidadeChegada;
 	}
 	
-	public void setChegada(String Chegada) {
-		this.Chegada = Chegada;
+	public void setCidadeChegada(String CidadeChegada) {
+		this.CidadeChegada = CidadeChegada;
+	}
+	
+	public String getUFSaida() {
+		return UFSaida;
+	}
+	
+	public void setUFSaida(String UFSaida) {
+		this.UFSaida = UFSaida;
+	}
+	
+	public String getUFChegada() {
+		return UFChegada;
+	}
+	
+	public void setUFChegada(String UFChegada) {
+		this.UFChegada = UFChegada;
 	}
 }

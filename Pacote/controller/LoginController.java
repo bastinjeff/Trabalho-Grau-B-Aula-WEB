@@ -21,8 +21,6 @@ public class LoginController{
     public String efetuaLogin(Credenciais credenciais, HttpSession session) throws ClassNotFoundException {
         if(new LoginDAO().existeUsuario(credenciais)) {
         	Usuario usuario = new Usuario();
-        	CatalogoDAO Catalogo = new CatalogoDAO();
-        	Catalogo.ResgatarCatalogo();
         	session.setAttribute("usuarioLogado", usuario);
             return "redirect:listaPrincipal";
         }

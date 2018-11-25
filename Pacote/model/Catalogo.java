@@ -1,7 +1,8 @@
 package Pacote.model;
+import java.util.ArrayList;
 import java.util.List;
 public class Catalogo {
-	private List<Viagem> Viagens;
+	public List<Viagem> Viagens = new ArrayList<Viagem>();
 	
 	public List<Viagem> getViagens(){
 		return Viagens;

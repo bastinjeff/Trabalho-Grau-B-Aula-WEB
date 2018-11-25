@@ -4,10 +4,10 @@ import java.util.List;
 public class Viagem {
 	private Empresa empresa;
 	private Rota rota;
-	private String Hora;
-	private String Preco;
-	private List<String> DiasSemana;
-	private String Modalidade;
+	private String hora;
+	private String preco;
+	private List<String> diassemana;
+	private String modalidade;
 	
 	public Empresa getEmpresa() {
 		return empresa;
@@ -18,45 +18,75 @@ public class Viagem {
 		empresa.setNome_fantasia(NomeEmpresa);		
 	}
 	
+	public String getNomeempresa() {
+		return empresa.getNome_Fantasia();
+	}
+	
 	public Rota getRota() {
 		return rota;
 	}
 	
-	public void setRota(String Chegada, String Saida) {
+	public void setRota(String CidadeSaida, String CidadeChegada, String UFChegada, String UFSaida) {
 		rota = new Rota();
-		rota.setChegada(Chegada);
-		rota.setSaida(Saida);
+		rota.setCidadeChegada(CidadeChegada);
+		rota.setCidadeSaida(CidadeSaida);
+		rota.setUFChegada(UFChegada);
+		rota.setUFSaida(UFSaida);
 	}
 	
+	public String getCidadechegada() {
+		return rota.getCidadeChegada();
+	}
+	
+	public String getCidadesaida() {
+		return rota.getCidadeSaida();
+	}
+	
+	public String getUfchegada() {
+		return rota.getUFChegada();
+	}
+	
+	public String getUfsaida() {
+		return rota.getUFSaida();
+	}
+
 	public String getHora() {
-		return Hora;
+		return hora;
 	}
 	
 	public void setHora(String Hora) {
-		this.Hora = Hora;
+		this.hora = Hora;
 	}
 	
 	public String getPreco() {
-		return Preco;
+		return preco;
 	}
 	
 	public void setPreco(String Preco) {
-		this.Preco = Preco;
+		this.preco = Preco;
 	}
 	
-	public List<String> getDiasSemana(){
+	public String getDiassemana(){
+		String DiasSemana = "";
+		boolean Primeiro = true;
+		for(String Dias: diassemana ) {
+			if(!Primeiro) {
+				DiasSemana+=",";
+			}else Primeiro = false;
+			DiasSemana+=Dias;
+		}
 		return DiasSemana;
 	}
 	
-	public void setDiasSemana(List<String> DiasSemana){
-		this.DiasSemana = DiasSemana;
+	public void setDiassemana(List<String> DiasSemana){
+		this.diassemana = DiasSemana;
 	}
 	
 	public String getModalidade() {
-		return Modalidade;
+		return modalidade;
 	}
 	
 	public void setModalidade(String Modalidade) {
-		this.Modalidade = Modalidade;
+		this.modalidade = Modalidade;
 	}
 }
