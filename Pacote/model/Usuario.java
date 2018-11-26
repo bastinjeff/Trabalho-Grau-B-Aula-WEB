@@ -7,6 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 public class Usuario {
+	private String id;
 	private String login;
 	private String Nome;
 	private String Email;
@@ -15,6 +16,13 @@ public class Usuario {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Calendar DataNascimento; 
 	
+	public String getid() {
+		return id;
+	}
+	
+	public void setid(String id) {
+		this.id = id;
+	}
 	
 	public String getLogin() {
 		return login;
@@ -24,7 +32,7 @@ public class Usuario {
 	}
 	
 	public String getNome() {
-		return Nome;
+		return TestNULL(Nome);
 	}
 	
 	public void setNome(String Nome) {
@@ -32,22 +40,22 @@ public class Usuario {
 	}
 	
 	public String getEmail() {
-		return Email;
+		return TestNULL(Email);
 	}
 	
 	public void setEmail(String Email) {
 		this.Email = Email;
 	}
 	
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return TestNULL(CPF);
 	}
-	public void setCPF(String CPF) {
+	public void setCpf(String CPF) {
 		this.CPF = CPF;
 	}
 	
 	public String getTelefone() {
-		return Telefone;
+		return TestNULL(Telefone);
 	}
 	
 	public void setTelefone(String Telefone){
@@ -60,5 +68,12 @@ public class Usuario {
 	
 	public void setDataNasc(Calendar DataNascimento) {
 		this.DataNascimento = DataNascimento;
+	}
+	
+	private String TestNULL(String Teste) {
+		if(Teste==null || Teste=="") {
+			return "";
+		}
+		else return Teste;
 	}
 }

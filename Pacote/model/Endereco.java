@@ -6,11 +6,20 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 public class Endereco {
+	private String id;
 	private String Rua;
 	private String Numero;
 	private String Bairro;
 	private String CEP;
-	private CidadeUF cidadeuf;
+	private CidadeUF cidadeuf = new CidadeUF();
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public String getId() {
+		return id;
+	}
 	
 	public String getRua() {
 		return Rua;
@@ -36,21 +45,20 @@ public class Endereco {
 		this.Bairro = Bairro;
 	}
 	
-	public String getCEP() {
+	public String getCep() {
 		return CEP;		
 	}
 	
-	public void setCEP(String CEP) {
+	public void setCep(String CEP) {
 		this.CEP = CEP;
 	}
 	
-	public CidadeUF getCidadeUF() {
+	public CidadeUF getCidadeuf() {
 		return cidadeuf;
 	}
 	
 	public void setCidadeUF(String Cidade, String UF) {
-		cidadeuf = new CidadeUF();
 		cidadeuf.setCidade(Cidade);
-		cidadeuf.setUF(UF);
+		cidadeuf.setUf(UF);
 	}
 }

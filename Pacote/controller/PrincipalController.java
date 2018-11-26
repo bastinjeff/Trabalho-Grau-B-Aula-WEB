@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 
 import Pacote.dao.CatalogoDAO;
 import Pacote.model.Catalogo;
-import Pacote.model.Catalogo;
-import Pacote.dao.CatalogoDAO;
 @Controller
 public class PrincipalController{
 	
@@ -22,6 +20,11 @@ public class PrincipalController{
 	@RequestMapping("/")
 	public String listaPrincipalRaiz() {
 		return "principal/principal";
+	}
+	
+	@RequestMapping("mostrahome")
+	public String Mostrarhome() {
+		return "principal/Home";
 	}
 	
 }

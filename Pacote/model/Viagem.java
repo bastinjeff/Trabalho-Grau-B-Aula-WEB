@@ -15,11 +15,11 @@ public class Viagem {
 	
 	public void setEmpresa(String NomeEmpresa) {
 		empresa = new Empresa();
-		empresa.setNome_fantasia(NomeEmpresa);		
+		empresa.setNomefantasia(NomeEmpresa);		
 	}
 	
 	public String getNomeempresa() {
-		return empresa.getNome_Fantasia();
+		return empresa.getNomefantasia();
 	}
 	
 	public Rota getRota() {

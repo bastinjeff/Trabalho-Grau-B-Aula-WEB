@@ -1,34 +1,44 @@
 package Pacote.model;
 
 public class Empresa {
-	private String Nome_fantasia;
-	private String Razao_Social;
-	private String CNPJ;
+	private String id;
+	private String nomefantasia;
+	private String razaosocial;
+	private String cnpj;
 	private String Email;
 	private String Telefone;
+	private Endereco endereco = new Endereco();
 	
-	public String getNome_Fantasia() {
-		return Nome_fantasia;
+	public String getId() {
+		return id;
 	}
 	
-	public void setNome_fantasia(String Nome_fantasia) {
-		this.Nome_fantasia = Nome_fantasia;
+	public void setId(String id) {
+		this.id = id;		
 	}
 	
-	public String getRazao_Social() {
-		return Razao_Social;
+	public String getNomefantasia() {
+		return nomefantasia;
 	}
 	
-	public void setRazao_Social(String Razao_Social) {
-		this.Razao_Social = Razao_Social;
+	public void setNomefantasia(String nomefantasia) {
+		this.nomefantasia = nomefantasia;
 	}
 	
-	public String getCNPJ() {
-		return CNPJ;
+	public String getRazaosocial() {
+		return razaosocial;
 	}
 	
-	public void setCNPJ(String CNPJ) {
-		this.CNPJ = CNPJ;
+	public void setRazaosocial(String razaosocial) {
+		this.razaosocial = razaosocial;
+	}
+	
+	public String getCnpj() {
+		return cnpj;
+	}
+	
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 	
 	public String getEmail() {
@@ -45,5 +55,33 @@ public class Empresa {
 	
 	public void setTelefone(String Telefone) {
 		this.Telefone = Telefone;
+	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	
+	public void setidend(String id) {
+		endereco.setId(id);
+	}
+	
+	public void setRuaend(String Rua) {
+		endereco.setRua(Rua);
+	}
+	
+	public void setNumeroend(String Numero) {
+		endereco.setNumero(Numero);
+	}
+	
+	public void setBairroend(String Bairro) {
+		endereco.setBairro(Bairro);
+	}
+	
+	public void setCepend(String CEP) {
+		endereco.setCep(CEP);
+	}
+	
+	public void setCidadeufend(String Cidade, String UF) {
+		endereco.setCidadeUF(Cidade, UF);
 	}
 }

@@ -51,8 +51,10 @@ public class CatalogoDAO {
 			    	viagem.setRota(CidadesUFs.get(0), CidadesUFs.get(1),
 			    			CidadesUFs.get(2), CidadesUFs.get(3));
 		    		viagem.setDiassemana(DiasSemana);		    		
-					Cat.AddViagem(viagem);
+					Cat.AddViagem(viagem);					
 				}
+				Resultado.close();
+				stmt.close();
 			}catch(SQLException e) {
 				throw new RuntimeException(e);
 			}
