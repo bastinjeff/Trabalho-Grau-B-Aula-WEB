@@ -23,22 +23,12 @@
 	<label for="Nome">Nome</label>  
 	<input type="text" name="nome" value="${usuario.nome}" > 
 	<form:errors path="usuario.nome" cssStyle="color:#B71C1C"/><br />
-
-	<label for="Login">Login</label>  
-	<input type="text" name="login" value="${usuario.login}" >
-	<form:errors path="usuario.login" cssStyle="color:#B71C1C"/><br />
-
-	<label for="Senha">Senha</label>  	
-	<input type="password" name="senha" value="${usuario.senha}">
-	<form:errors path="usuario.senha" cssStyle="color:#B71C1C"/><br />
 	
-	<label for="DataNascimento">Data Nascimento</label>  
-	<input type="text" name="dataNascimento" value ="<fmt:formatDate value="${usuario.dataNascimento.time}" pattern="dd/MM/yyyy" />" > 
-	<form:errors path="usuario.dataNascimento" cssStyle="color:#B71C1C"/><br />
+	<label for="Email">Email</label>
+	<input type="text" name="email" value="${usuario.email}"><br/>
 	
-	<label for="Altura">Altura</label>  
-	<input type="text" name="altura" value="${usuario.altura}" >
-	<form:errors path="usuario.altura" cssStyle="color:#B71C1C"/><br />
+	<label for="CPF">CPF</label>
+	<input type="text" name="cpf" value="${usuario.cpf}">
 	
 	<input type="submit" value="Alterar">
 	
