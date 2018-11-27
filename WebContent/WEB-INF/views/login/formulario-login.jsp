@@ -12,6 +12,7 @@
 <body>
 	<h3>Acesso ao Sistema</h3>
 	<form action="efetuaLogin" method="post" >
+		<label>${erro.errormessage}</label><br/>
 		<label>Login:</label><br />
 		<input name="login" > <br/>
 		<label>Senha:</label><br />

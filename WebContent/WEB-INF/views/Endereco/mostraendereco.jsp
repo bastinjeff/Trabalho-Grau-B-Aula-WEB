@@ -33,10 +33,10 @@
 	<input type="text" name="cep" value="${endereco.cep}"><br/>
 	
 	<label for="Cidade">Cidade</label>
-	<input type="text" name="cidade" value="${endereco.cidadeuf.cidade}"><br/>
+	<input type="text" name="cidadeuf.cidade" value="${endereco.cidadeuf.cidade}"><br/>
 	
 	<label for="UF">UF</label>
-	<input type="text" name="uf" value="${endereco.cidadeuf.uf}"><br/>		
+	<input type="text" name="cidadeuf.uf" value="${endereco.cidadeuf.uf}"><br/>		
 	
 	<input type="submit" value="Alterar">
 	

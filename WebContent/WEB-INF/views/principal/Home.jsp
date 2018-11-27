@@ -9,7 +9,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Onibusca</title>
-  <link rel="stylesheet" type="text/css" href="estilo.css">
+  <link rel="stylesheet" type="text/css" href="../css/estilo.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,italic,500,500italic,700,700italic,900,900italic,400|Roboto+Slab:100,300,700,400|Cabin:italic,500,500italic,600,600italic,700,700italic,400|Anton:400|Righteous:400|Black+Han+Sans:400|Fredoka+One:400|Russo+One:400|Titan+One:400|Black+Ops+One:400|Baloo:400|Lilita+One:400|Candal:400|Secular+One:400|Baloo+Bhaijaan:400|Baloo+Tamma:400"
   rel="stylesheet" type="text/css">
 </head>
