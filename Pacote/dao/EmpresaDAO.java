@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import Pacote.jdbc.ConnectionFactory;
 import Pacote.model.Empresa;
-
+import Pacote.dao.EnderecoDAO;
 public class EmpresaDAO {
 		Connection connection;
 		
@@ -51,6 +51,26 @@ public class EmpresaDAO {
 				stmt.setString(4, empresa.getEmail());
 				stmt.setString(5, empresa.getTelefone());
 				stmt.setString(6, empresa.getId());
+				stmt.executeUpdate();
+				stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e);
+			}
+		}
+		
+		public void CriarEmpresa(Empresa empresa, String CredencialID) throws ClassNotFoundException {
+			String Query = "INSERT INTO Empresa(Credenciais_ID,Nome_Fantasia,Razao_Social,CNPJ,Endereco_ID,Email,Telefone)"
+					+ " VALUES(?,?,?,?,?,?,?)";
+			try {
+				PreparedStatement stmt = connection.prepareStatement(Query);
+				stmt.setString(1, CredencialID);
+				stmt.setString(2, empresa.getNomefantasia());
+				stmt.setString(3, empresa.getRazaosocial());
+				stmt.setString(4, empresa.getCnpj());
+				String EndID = new EnderecoDAO().Criar(empresa.getEndereco());
+				stmt.setString(5, EndID);
+				stmt.setString(6, empresa.getEmail());
+				stmt.setString(7, empresa.getTelefone());
 				stmt.executeUpdate();
 				stmt.close();
 			}catch(SQLException e) {

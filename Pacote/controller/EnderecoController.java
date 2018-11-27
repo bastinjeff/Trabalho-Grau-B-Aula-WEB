@@ -20,7 +20,7 @@ public class EnderecoController {
 	
 	@RequestMapping("alteraEndereco")
 	public String AlterarEndereco(Endereco endereco) throws ClassNotFoundException {
-		System.out.println(endereco.getId());
+		System.out.println(endereco.getCidadeuf().getCidade());
 		EnderecoDAO dao = new EnderecoDAO();
 		dao.Alterar(endereco);
 		return "principal/principal";

@@ -3,24 +3,24 @@ package Pacote.model;
 import javax.validation.constraints.Size;
 
 public class Credenciais {
-	private String Login;
+	private String logon;
 	@Size(min=1 , message="Preencher Campo")
-	private String Senha;
+	private String senha;
 	@Size(min=1 , message="Preencher Campo")
-	
+		
 	public String getLogin() {
-		return Login;
+		return logon;
 	}
 	
-	public void setLogin(String Login) {
-		this.Login = Login;
+	public void setLogin(String logon) {
+		this.logon = logon;
 	}
 	
 	public String getSenha() {
-		return Senha;
+		return senha;
 	}
 	
-	public void setSenha(String Senha) {
-		this.Senha = Senha;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }

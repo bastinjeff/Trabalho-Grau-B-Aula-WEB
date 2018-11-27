@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import Pacote.dao.EmpresaDAO;
 import Pacote.model.Empresa;
-
+import Pacote.model.Credenciais;
+import Pacote.dao.LoginDAO;
 @Controller
 public class EmpresaController {
 	
@@ -23,6 +24,21 @@ public class EmpresaController {
 	public String AlterarEmpresa(Empresa empresa) throws ClassNotFoundException {
 		EmpresaDAO dao = new EmpresaDAO();
 		dao.Alterar(empresa);
+		return "principal/principal";
+	}
+	
+	@RequestMapping("mostraCriarempresa")
+	public String MostraCriarEmpresa() {
+		return "empresa/testecadastroempresa";
+	}
+	
+	@RequestMapping("criaEmpresa")
+	public String CriarEmpresa(Empresa empresa, Credenciais credenciais) throws ClassNotFoundException {
+		credenciais.setLogin(empresa.getEmail());
+		if(!new LoginDAO().VerificarEmail(credenciais.getLogin())) {
+			String ID = new LoginDAO().CriarCredencial(credenciais);
+			new EmpresaDAO().CriarEmpresa(empresa, ID);
+		}
 		return "principal/principal";
 	}
 }

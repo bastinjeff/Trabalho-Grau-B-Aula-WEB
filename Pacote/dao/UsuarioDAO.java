@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
 
 
 import Pacote.jdbc.ConnectionFactory;
 import Pacote.model.Usuario;
-
+import Pacote.model.Credenciais;
 
 public class UsuarioDAO {
 		Connection connection;
@@ -53,6 +54,35 @@ public class UsuarioDAO {
 				stmt.close();
 			}catch(SQLException e) {
 				
+			}
+		}
+		
+		public void CriarUsuario(Usuario usuario, String Credencial_ID) {
+			String Query = "INSERT INTO Usuario(Nome,Email,CPF,Telefone,Credenciais_ID) "
+					+ "VALUES (?,?,?,?,?)";
+			try {
+				PreparedStatement stmt = connection.prepareStatement(Query);
+				stmt.setString(1, usuario.getNome());
+				stmt.setString(2, usuario.getEmail());
+				stmt.setString(3, usuario.getCpf());
+				stmt.setString(4, usuario.getTelefone());
+				stmt.setString(5,Credencial_ID);
+				stmt.executeUpdate();
+				stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e);				
+			}
+		}
+		
+		public void DeletaUsuario(Usuario usuario) {
+			String Query = "DELETE FROM Usuario WHERE Id=?";
+			try {
+				PreparedStatement stmt = connection.prepareStatement(Query);
+				stmt.setString(1, usuario.getid());
+				stmt.executeUpdate();
+				stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e);
 			}
 		}
 		
