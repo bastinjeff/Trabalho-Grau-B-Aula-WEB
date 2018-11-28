@@ -1,5 +1,6 @@
 package Pacote.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ import Pacote.dao.LoginDAO;
 public class UsuarioController {
 	
 	@RequestMapping("mostraUsuario")
-	public String MostrarUsuario(Model modelo) throws ClassNotFoundException {
+	public String MostrarUsuario(Model modelo, HttpSession sessao) throws ClassNotFoundException {
 		UsuarioDAO dao = new UsuarioDAO();
-		modelo.addAttribute("usuario",dao.PegarUsuario());
+		Usuario usuario = (Usuario)sessao.getAttribute("usuarioLogado");
+		modelo.addAttribute("usuario",dao.PegarUsuario(usuario.getid()));
 		return "usuario/mostra";
 	}
 	

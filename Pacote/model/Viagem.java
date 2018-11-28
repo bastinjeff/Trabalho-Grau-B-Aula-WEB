@@ -28,8 +28,8 @@ public class Viagem {
 	
 	public void setRota(String CidadeSaida, String CidadeChegada, String UFChegada, String UFSaida) {
 		rota = new Rota();
-		rota.setCidadeChegada(CidadeChegada);
-		rota.setCidadeSaida(CidadeSaida);
+		rota.setCidadechegada(CidadeChegada);
+		rota.setCidadesaida(CidadeSaida);
 		rota.setUFChegada(UFChegada);
 		rota.setUFSaida(UFSaida);
 	}

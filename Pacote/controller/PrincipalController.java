@@ -10,10 +10,7 @@ import Pacote.model.Catalogo;
 public class PrincipalController{
 	
 	@RequestMapping("listaPrincipal")
-	public String listaPrincipal(Model modelo) throws ClassNotFoundException {
-    	CatalogoDAO catalogo = new CatalogoDAO();
-    	Catalogo cat = catalogo.ResgatarCatalogo();
-    	modelo.addAttribute("viagens",cat.getViagens());
+	public String listaPrincipal(Model modelo) throws ClassNotFoundException {    	
 		return "principal/principal";
 	}
 	

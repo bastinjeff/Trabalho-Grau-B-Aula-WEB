@@ -20,16 +20,16 @@ public class UsuarioDAO {
 			this.connection = new ConnectionFactory().getConnection();
 		}
 	
-		public Usuario PegarUsuario() {
+		public Usuario PegarUsuario(String Usuario_ID) {
 			Usuario usuario = new Usuario();
 				try {
-					PreparedStatement stmt = this.connection.prepareStatement(QueryPegar("Where Id = 1"));
+					PreparedStatement stmt = this.connection.prepareStatement(QueryPegar("Where Id = " + Usuario_ID));
 					ResultSet Resultado = stmt.executeQuery();
 					while(Resultado.next()) {
 						usuario.setNome(TestNULL(Resultado,"Usuario.nome"));
 						usuario.setEmail(TestNULL(Resultado,"Usuario.Email"));
 						usuario.setCpf(TestNULL(Resultado,"Usuario.CPF"));
-						usuario.setid("1");
+						usuario.setid(Usuario_ID);
 					}
 					stmt.close();
 					Resultado.close();

@@ -19,10 +19,10 @@ public class CatalogoDAO {
 			this.connection = new ConnectionFactory().getConnection();
 		}
 		
-		public Catalogo ResgatarCatalogo(){
+		public Catalogo ResgatarCatalogo(String CidadeChegada, String CidadePartida){
 			Catalogo Cat = new Catalogo();
 			try {
-				PreparedStatement stmt = this.connection.prepareStatement(ViagemQuery());
+				PreparedStatement stmt = this.connection.prepareStatement(ViagemQuery(CidadeChegada,CidadePartida));
 				ResultSet Resultado = stmt.executeQuery();
 				while(Resultado.next()) {
 					Viagem viagem  = new Viagem();
@@ -87,7 +87,7 @@ public class CatalogoDAO {
 			}else return Result.getString(Coluna);			
 		}
 		
-		private String ViagemQuery() {
+		private String ViagemQuery(String CidadeChegada, String CidadeSaida) {
 			String Query = "Select *";
 			Query += " From Viagem";
 			Query += " LEFT JOIN Empresa ON Empresa_ID = Empresa.ID";
@@ -98,6 +98,9 @@ public class CatalogoDAO {
 			Query += " LEFT JOIN CidadeUF ON Cidade_UF_Partida_ID = CidadeUF.ID OR Cidade_UF_Chegada_ID = CidadeUF.ID";
 			Query += " LEFT JOIN Cidade ON Cidade_ID = Cidade.ID";
 			Query += " LEFT JOIN UF ON UF_ID = UF.ID";
+			Query += " WHERE Cidade_UF_Partida_ID = ( SELECT ID FROM Cidade WHERE NomeCidade  = '"+CidadeSaida+"')";
+			Query += " AND Cidade_UF_Chegada_ID = (SELECT ID FROM Cidade WHERE NomeCidade = '"+CidadeChegada+"')";
+			System.out.println(Query);
 			return Query;
 		}
 }

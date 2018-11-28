@@ -18,12 +18,12 @@ public class EmpresaDAO {
 			this.connection = new ConnectionFactory().getConnection();
 		}
 		
-		public Empresa PegarEmpresa() {
+		public Empresa PegarEmpresa(String Empresa_ID) {
 			String Query = "SELECT * FROM Empresa WHERE Id=?";
 			Empresa empresa = new Empresa();
 			try {
 				PreparedStatement stmt = connection.prepareStatement(Query);
-				stmt.setString(1, "5");
+				stmt.setString(1, Empresa_ID);
 				ResultSet Resultado = stmt.executeQuery();
 				while(Resultado.next()) {
 					empresa.setId(TestNULL(Resultado,"Empresa.ID"));

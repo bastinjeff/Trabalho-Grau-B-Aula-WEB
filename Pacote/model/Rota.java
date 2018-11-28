@@ -10,7 +10,7 @@ public class Rota {
 		return CidadeSaida;
 	}
 	
-	public void setCidadeSaida(String CidadeSaida) {
+	public void setCidadesaida(String CidadeSaida) {
 		this.CidadeSaida = CidadeSaida;
 	}
 	
@@ -18,7 +18,7 @@ public class Rota {
 		return CidadeChegada;
 	}
 	
-	public void setCidadeChegada(String CidadeChegada) {
+	public void setCidadechegada(String CidadeChegada) {
 		this.CidadeChegada = CidadeChegada;
 	}
 	

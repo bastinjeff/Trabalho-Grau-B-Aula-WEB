@@ -16,7 +16,7 @@ public class EnderecoDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 	
-	public Endereco PegarEndereco() {
+	public Endereco PegarEndereco(String Endereco_ID) {
 		String Query = "SELECT * From Endereco "
 				+ "JOIN CidadeUF ON CidadeUF_id = CidadeUF.id "
 				+ "JOIN Cidade ON Cidade_ID = Cidade.id "
@@ -25,7 +25,7 @@ public class EnderecoDAO {
 		Endereco endereco = new Endereco();
 		try {
 			PreparedStatement stmt = connection.prepareStatement(Query);
-			stmt.setString(1, "2");
+			stmt.setString(1, Endereco_ID);
 			ResultSet Resultado = stmt.executeQuery();
 			while(Resultado.next()) {
 				endereco.setRua(TestNULL(Resultado,"Endereco.Rua"));
@@ -201,6 +201,24 @@ public class EnderecoDAO {
 			return ID;
 		}catch(SQLException e) {
 			return ID;
+		}
+	}
+	
+	public List<String> ListarCidades() {
+		String Query = "SELECT * From CidadeUF JOIN Cidade ON Cidade_ID = Cidade.iD JOIN UF ON UF_ID = UF.Id";
+		List<String> Cidades = new ArrayList<String>();
+		try {
+			PreparedStatement stmt = connection.prepareStatement(Query);
+			ResultSet Resultado = stmt.executeQuery();
+			while(Resultado.next()) {
+				Cidades.add(Resultado.getString("Cidade.NomeCidade") + "/" + Resultado.getString("UF.NomeUF"));
+			}
+			Resultado.close();
+			stmt.close();		
+			return Cidades;
+		}catch(SQLException e) {
+			System.out.println(e);
+			return Cidades;
 		}
 	}
 	

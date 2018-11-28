@@ -17,9 +17,11 @@ public class LoginDAO {
 		this.connection = new ConnectionFactory().getConnection();
 	}
 	
-	public boolean existeUsuario(Credenciais credenciais){
-		
-		String sql = "select * from Credenciais where login= ? and senha = ?";
+	public String ExisteConta(Credenciais credenciais, String Tabela){
+		String ID = "", sql = "";
+		if(Tabela.equals("Usuario")) {
+			sql = "select Usuario.Id from Credenciais JOIN Usuario ON Credenciais.id = Credenciais_ID where login= ? and senha = ?";
+		}else sql = "select Empresa.Id from Credenciais JOIN Empresa ON Credenciais.id = Credenciais_ID where login= ? and senha = ?";
     	System.out.println("val = " + credenciais.getLogin());
     	System.out.println("val = " + credenciais.getSenha());
 			try{
@@ -28,17 +30,18 @@ public class LoginDAO {
 			stmt.setString(2, credenciais.getSenha());
 			ResultSet rs = stmt.executeQuery();
 			
-			stmt.execute();
+			//stmt.execute();
 			
 			if(rs.next())
 			{
+				ID = rs.getString("Id");
 				stmt.close();
-				return true;
+				return ID;
 			}
 			else
 			{
 				stmt.close();
-				return false;
+				return ID;
 			}
 			
 		}catch(SQLException e){

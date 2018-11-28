@@ -1,4 +1,6 @@
 package Pacote.controller;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +15,10 @@ import Pacote.dao.LoginDAO;
 public class EmpresaController {
 	
 	@RequestMapping("mostraEmpresa")
-	public String MostrarEmpresa(Model modelo) throws ClassNotFoundException {
+	public String MostrarEmpresa(Model modelo, HttpSession sessao) throws ClassNotFoundException {
 		EmpresaDAO dao = new EmpresaDAO();
-		Empresa emp = dao.PegarEmpresa();
+		Empresa empresa = (Empresa) sessao.getAttribute("empresaLogada");
+		Empresa emp = dao.PegarEmpresa(empresa.getId());
 		modelo.addAttribute("empresa",emp);
 		return "empresa/mostraempresa";
 	}
