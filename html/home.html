@@ -9,23 +9,17 @@
   rel="stylesheet" type="text/css">
 </head>
 
-<body class="htmlNoPages">
+<body>
   <div class="class-header" id="header">
-    <img src="assets/logo_site_alpha.png" class="class-logo" id="logo">
+    <img src="logo_site_alpha.png" class="class-logo" id="logo">
     <ul class="class-entrar-cadastrar">
-      <li class=""><a href="#">Entrar</a>
-        <ul class="">
-          <li><a href="#">Cliente</a>
-          </li>
-          <li><a href="#">Empresa</a>
-          </li>
-        </ul>
+      <li class=""><a href="login.html">Entrar</a>
       </li>
       <li class=""><a href="#">Cadastrar</a>
         <ul class="">
-          <li><a href="#">Cliente</a>
+          <li><a href="cadastrar_cliente.html">Cliente</a>
           </li>
-          <li><a href="#">Empresa</a>
+          <li><a href="cadastrar_empresa.html">Empresa</a>
           </li>
         </ul>
       </li>
@@ -34,8 +28,6 @@
   <form class="class-form-consulta" id="form_consulta" action="efetuarConsulta">
     <input class="class-input class-input-origem" type="text" name="origem" placeholder="origem" id="input_origem">
     <input class="class-input class-input-destino" type="text" name="destino" placeholder="destino" id="input_destino">
-    <input class="class-input class-input-ida" type="text" name="ida" placeholder="ida" id="input_ida">
-    <input class="class-input class-input-volta" type="text" name="volta" placeholder="volta (opcional)" id="input_volta">
     <input type="submit" value="Consultar" class="class-submit-consultar" id="submit_consultar">
   </form>
   <div class="class-footer"></div>
