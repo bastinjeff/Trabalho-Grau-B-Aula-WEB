@@ -17,7 +17,7 @@
 		<input name="login" > <br/>
 		<label>Senha:</label><br />
 		<input name="senha" type="password" value=""><br/><br/>
-		<input type="submit" value="Entrar">
+		<input type="submit" value="Logar Usuario" name="usuario">  <input type="submit" value="Logar Empresa" name="empresa">
 	</form>
 </body>
 </html>

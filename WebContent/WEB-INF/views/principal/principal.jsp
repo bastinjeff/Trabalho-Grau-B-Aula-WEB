@@ -10,30 +10,7 @@
 <body>
 	
 	<c:import url="/WEB-INF/views/principal/menu.jsp"/>
-	<h4>Olá ${usuarioLogado.login}, Seja bem vindo Sistema.</h4>
-	<br/>
-	<table border="1">
-		<tr>
-			<th>Empresa</th>
-			<th>Cidade Saida</th>
-			<th>Cidade Chegada</th>
-			<th>Hora</th>
-			<th>Preço</th>
-			<th>Modalidade</th>
-			<th>Frequencia</th>
-		</tr>
-		<c:forEach items="${viagens}" var="viagem">
-		<tr>
-			<td>${viagem.nomeempresa}</td>
-			<td>${viagem.cidadesaida} / ${viagem.ufsaida}</td>
-			<td>${viagem.cidadechegada} / ${viagem.ufchegada}</td>
-			<td>${viagem.hora}</td>
-			<td>R$ ${viagem.preco}</td>
-			<td>${viagem.modalidade}</td>
-			<td>${viagem.diassemana}</td>
-		</tr>
-		</c:forEach>
-	</table>
+		
 	
 </body>
 </html>

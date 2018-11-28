@@ -5,4 +5,5 @@
 <a href="mostrahome">mostrahome</a>
 <a href="mostraCriarusuario">Cadastro Usuario</a>
 <a href="mostraCriarempresa">Cadastro Empresa</a>
+<a href="mostraCatalogo">Catalogo</a>
 <br /> 
