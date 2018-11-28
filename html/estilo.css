@@ -147,10 +147,23 @@ html, body {
       border-radius: 6px;
       font-family: Roboto;
       font-weight: bold;
-      font-size: 18px;
+      font-size: 16px;
       position: absolute;
-      margin-left: 101px;
       top: 230px;
+    }
+    .class-label-entrarcomo{
+      font-family: Roboto;
+      font-weight: bold;
+      font-size: 16px;
+      position: absolute;
+      top:230px;
+      margin-left:-82px;
+    }
+    .class-submit-entrar-empresa {
+      margin-left:90px;
+    }
+    .class-submit-entrar-cliente {
+      margin-left:10px;
     }
     .class-footer {
       width: 100%;
