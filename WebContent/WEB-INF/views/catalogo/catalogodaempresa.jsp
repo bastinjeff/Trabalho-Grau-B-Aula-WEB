@@ -29,10 +29,10 @@
 			<td>R$ ${viagem.preco}</td>
 			<td>${viagem.modalidade}</td>
 			<td>${viagem.diassemana}</td>
-			<td><a href="adicionaPassagem?id=${viagem.id}">Adicionar aos favoritos</a></td>
+			<td><a href="deletaviagem?id=${viagem.id}" title="Deletar">Deletar</a></td>
 		</tr>
 		</c:forEach>
 	</table>
-
+	<a href="mostracriarnovaViagem">Criar Nova Viagem</a>
 </body>
 </html>

@@ -30,9 +30,32 @@
 	<label for="CPF">CPF</label>
 	<input type="text" name="cpf" value="${usuario.cpf}">
 	
-	<input type="submit" value="Alterar">
-	
+	<input type="submit" value="Alterar">	
 	</form>
+	<label>Favoritos</label>
+	<table border="1">
+		<tr>
+			<th>Empresa</th>
+			<th>Cidade Saida</th>
+			<th>Cidade Chegada</th>
+			<th>Hora</th>
+			<th>Preço</th>
+			<th>Modalidade</th>
+			<th>Frequencia</th>
+		</tr>
+		<c:forEach items="${viagens}" var="viagem">
+		<tr>
+			<td>${viagem.nomeempresa}</td>
+			<td>${viagem.cidadesaida} / ${viagem.ufsaida}</td>
+			<td>${viagem.cidadechegada} / ${viagem.ufchegada}</td>
+			<td>${viagem.hora}</td>
+			<td>R$ ${viagem.preco}</td>
+			<td>${viagem.modalidade}</td>
+			<td>${viagem.diassemana}</td>
+			<td><a href="deletaPassagem?id=${viagem.id}" title="Deletar">Deletar</a></td>
+		</tr>
+		</c:forEach>
+	</table>
 	
 </body>
 </html>

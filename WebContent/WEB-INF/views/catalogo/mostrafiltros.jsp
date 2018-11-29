@@ -14,7 +14,7 @@
 		<table>
 			<tr>
 				<th>
-					<label>Cidade de partida</label>
+					<label>Cidade de saida</label>
 				</th>
 				<th>
 					<label>Cidade de chegada</label>
