@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import Pacote.dao.CatalogoDAO;
 import Pacote.model.Catalogo;
+import Pacote.model.Empresa;
 import Pacote.model.Rota;
+import Pacote.model.Viagem;
 import Pacote.dao.EnderecoDAO;
 @Controller
 public class CatalogoController {
@@ -32,7 +34,37 @@ public class CatalogoController {
 		
 		@RequestMapping("mostraCatalogo")
 		public String MostrarCatalogo(Model modelo) throws ClassNotFoundException {
-			modelo.addAttribute("cidades",new EnderecoDAO().ListarCidades());
+			modelo.addAttribute("cidades",new EnderecoDAO().ListarCidadeUF());
 			return "catalogo/mostrafiltros";
+		}
+		
+		@RequestMapping("catalogodeEmpresa")
+		public String CatalogoDeEmpresa(Model modelo, HttpSession sessao) throws ClassNotFoundException {
+			Empresa empresa = (Empresa)sessao.getAttribute("empresaLogada");
+			Catalogo cat = new CatalogoDAO().ResgatarCatalogoEmpresa(empresa.getId());
+			modelo.addAttribute("viagens", cat.getViagens());
+			return "catalogo/catalogodaempresa";
+		}
+		
+		@RequestMapping("mostracriarnovaViagem")
+		public String MostraCriarNovaViagem(Model modelo, HttpSession sessao) throws ClassNotFoundException {
+			Empresa empresa = (Empresa) sessao.getAttribute("empresaLogada");
+			modelo.addAttribute("empresa",empresa);
+			modelo.addAttribute("cidades",new EnderecoDAO().ListarCidades());
+			modelo.addAttribute("UFs",new EnderecoDAO().ListarUFs());
+			return "catalogo/criarnovaviagem";
+		}
+		
+		@RequestMapping("criarNovaviagem")
+		public String CriarNovaViagem(Viagem viagem) throws ClassNotFoundException {
+			CatalogoDAO dao = new CatalogoDAO();
+			dao.NovaViagem(viagem);
+			return "redirect:catalogodeEmpresa";
+		}
+		
+		@RequestMapping("deletaviagem")
+		public String DeletarViagem(Viagem viagem) throws ClassNotFoundException {
+			new CatalogoDAO().DeletarViagem(viagem);
+			return "redirect:catalogodeEmpresa";
 		}
 }

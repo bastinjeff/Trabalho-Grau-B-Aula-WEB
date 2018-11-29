@@ -2,19 +2,31 @@ package Pacote.model;
 import java.util.List;
 
 public class Viagem {
-	private Empresa empresa;
-	private Rota rota;
+	private String Id;
+	private Empresa empresa = new Empresa();;
+	private Rota rota = new Rota();
 	private String hora;
 	private String preco;
 	private List<String> diassemana;
 	private String modalidade;
 	
+	public String getId() {
+		return Id;
+	}
+	
+	public void setId(String Id) {
+		this.Id = Id;
+	}
+	
 	public Empresa getEmpresa() {
 		return empresa;
 	}
 	
-	public void setEmpresa(String NomeEmpresa) {
-		empresa = new Empresa();
+	public void setIdempresa(String Empresa_ID) {
+		empresa.setId(Empresa_ID);
+	}
+	
+	public void setNomeempresa(String NomeEmpresa) {		
 		empresa.setNomefantasia(NomeEmpresa);		
 	}
 	
@@ -26,12 +38,15 @@ public class Viagem {
 		return rota;
 	}
 	
-	public void setRota(String CidadeSaida, String CidadeChegada, String UFChegada, String UFSaida) {
-		rota = new Rota();
+	public void setRota(String CidadeSaida, String CidadeChegada, String UFSaida, String UFChegada) {
 		rota.setCidadechegada(CidadeChegada);
 		rota.setCidadesaida(CidadeSaida);
-		rota.setUFChegada(UFChegada);
-		rota.setUFSaida(UFSaida);
+		rota.setUfchegada(UFChegada);
+		rota.setUfsaida(UFSaida);
+	}
+	
+	public void setRota(Rota rota) {
+		this.rota = rota;
 	}
 	
 	public String getCidadechegada() {
@@ -76,6 +91,10 @@ public class Viagem {
 			DiasSemana+=Dias;
 		}
 		return DiasSemana;
+	}
+	
+	public List<String> getListadiassemana(){
+		return diassemana;
 	}
 	
 	public void setDiassemana(List<String> DiasSemana){

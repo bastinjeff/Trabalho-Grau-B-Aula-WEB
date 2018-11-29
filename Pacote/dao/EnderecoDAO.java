@@ -54,7 +54,7 @@ public class EnderecoDAO {
 			stmt.setString(2, endereco.getNumero());
 			stmt.setString(3, endereco.getBairro());
 			stmt.setString(4, endereco.getCep());
-			String CidadeUFID = VerificarCidadeUF(endereco.getCidadeuf().getCidade(),endereco.getCidadeuf().getUf());
+			String CidadeUFID = PegarIDCidadeUF(endereco.getCidadeuf().getCidade(),endereco.getCidadeuf().getUf());
 			System.out.println(CidadeUFID);
 			stmt.setString(5, CidadeUFID);
 			stmt.setString(6, endereco.getId());
@@ -75,7 +75,7 @@ public class EnderecoDAO {
 			stmt.setString(2, endereco.getNumero());
 			stmt.setString(3, endereco.getBairro());
 			stmt.setString(4, endereco.getCep());
-			String CidadeUFID = VerificarCidadeUF(endereco.getCidadeuf().getCidade(),endereco.getCidadeuf().getUf());
+			String CidadeUFID = PegarIDCidadeUF(endereco.getCidadeuf().getCidade(),endereco.getCidadeuf().getUf());
 			stmt.setString(5, CidadeUFID);
 			stmt.executeUpdate();
 			ResultSet Resultado = stmt.getGeneratedKeys();
@@ -91,7 +91,7 @@ public class EnderecoDAO {
 		}
 	}
 	
-	public String VerificarCidadeUF(String Cidade, String UF) {		
+	public String PegarIDCidadeUF(String Cidade, String UF) {		
 		String IDCidade = "", IDUF = "";
 		if(!VerificarCidade(Cidade)) {
 			IDCidade = CriarCidade(Cidade);
@@ -175,7 +175,7 @@ public class EnderecoDAO {
 			stmt.close();
 			Resultado.close();
 			if(IDCidadeUF.equals("")) {
-				CriarCidadeUF(IDCidade,IDUF);
+				IDCidadeUF = CriarCidadeUF(IDCidade,IDUF);
 			}
 			return IDCidadeUF;
 		}catch(SQLException e) {
@@ -205,20 +205,51 @@ public class EnderecoDAO {
 	}
 	
 	public List<String> ListarCidades() {
+		String Query = "SELECT NomeCidade FROM Cidade";
+		List<String> Cidades = Listar("NomeCidade",Query);
+		return Cidades;
+	}
+		
+	public List<String> ListarUFs() {
+		String Query = "SELECT NomeUF FROM UF";
+		List<String> UFs = Listar("NomeUF",Query);
+		return UFs;
+	}
+	
+	public List<String> ListarCidadeUF(){
 		String Query = "SELECT * From CidadeUF JOIN Cidade ON Cidade_ID = Cidade.iD JOIN UF ON UF_ID = UF.Id";
-		List<String> Cidades = new ArrayList<String>();
+		List<String> Lista = new ArrayList<String>();
 		try {
 			PreparedStatement stmt = connection.prepareStatement(Query);
 			ResultSet Resultado = stmt.executeQuery();
 			while(Resultado.next()) {
-				Cidades.add(Resultado.getString("Cidade.NomeCidade") + "/" + Resultado.getString("UF.NomeUF"));
+				Lista.add(Resultado.getString("Cidade.NomeCidade") + "/" + Resultado.getString("Uf.NomeUF"));
 			}
 			Resultado.close();
 			stmt.close();		
-			return Cidades;
+			return Lista;
 		}catch(SQLException e) {
 			System.out.println(e);
-			return Cidades;
+			return Lista;
+		}
+	}
+	
+	private List<String> Listar(String Coluna, String Query) {
+		List<String> Lista = new ArrayList<String>();
+		try {
+			PreparedStatement stmt = connection.prepareStatement(Query);
+			ResultSet Resultado = stmt.executeQuery();
+			while(Resultado.next()) {
+				if(!Lista.contains(Resultado.getString(Coluna))) {
+					Lista.add(Resultado.getString(Coluna));
+				}
+			}
+			Resultado.close();
+			stmt.close();		
+			return Lista;
+		}catch(SQLException e) {
+			System.out.println(e);
+			return Lista;
 		}
 	}
 	

@@ -1,10 +1,37 @@
 package Pacote.model;
 
 public class Rota {
+	private String Id = "";
+	private String SaidaID;
+	private String ChegadaID;
 	private String CidadeSaida;
 	private String CidadeChegada;
 	private String UFSaida;
 	private String UFChegada;
+	
+	public String getId() {
+		return Id;
+	}
+	
+	public String getSaidaid() {
+		return SaidaID;
+	}
+	
+	public void setSaidaid(String CidadeUFSaidaID) {
+		SaidaID = CidadeUFSaidaID;
+	}
+	
+	public String getChegadaid() {
+		return ChegadaID;
+	}
+	
+	public void setChegadaid(String CidadeUFChegadaID) {
+		ChegadaID = CidadeUFChegadaID;
+	}
+	
+	public void setId(String Id) {
+		this.Id = Id;
+	}
 	
 	public String getCidadeSaida() {
 		return CidadeSaida;
@@ -26,7 +53,7 @@ public class Rota {
 		return UFSaida;
 	}
 	
-	public void setUFSaida(String UFSaida) {
+	public void setUfsaida(String UFSaida) {
 		this.UFSaida = UFSaida;
 	}
 	
@@ -34,7 +61,7 @@ public class Rota {
 		return UFChegada;
 	}
 	
-	public void setUFChegada(String UFChegada) {
+	public void setUfchegada(String UFChegada) {
 		this.UFChegada = UFChegada;
 	}
 }

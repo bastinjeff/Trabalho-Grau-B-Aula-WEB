@@ -12,7 +12,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import Pacote.dao.UsuarioDAO;
 import Pacote.model.Usuario;
+import Pacote.model.Viagem;
 import Pacote.model.Credenciais;
+import Pacote.dao.CatalogoDAO;
 import Pacote.dao.LoginDAO;
 @Controller
 public class UsuarioController {
@@ -20,8 +22,10 @@ public class UsuarioController {
 	@RequestMapping("mostraUsuario")
 	public String MostrarUsuario(Model modelo, HttpSession sessao) throws ClassNotFoundException {
 		UsuarioDAO dao = new UsuarioDAO();
+		CatalogoDAO catdao = new CatalogoDAO();
 		Usuario usuario = (Usuario)sessao.getAttribute("usuarioLogado");
 		modelo.addAttribute("usuario",dao.PegarUsuario(usuario.getid()));
+		modelo.addAttribute("viagens",catdao.ResgatarCatalogoPassagens(usuario.getid()).getViagens());
 		return "usuario/mostra";
 	}
 	
@@ -47,6 +51,19 @@ public class UsuarioController {
 			dao.CriarUsuario(usuario, CredencialID);
 		}
 		return "principal/principal";
+	}
+	@RequestMapping("adicionaPassagem")
+	public String AdicionarPassagem(Viagem viagem, HttpSession sessao) throws ClassNotFoundException {
+		Usuario usuario = (Usuario)sessao.getAttribute("usuarioLogado");
+		new UsuarioDAO().AdicionaPassagem(viagem.getId(), usuario.getid());
+		return "redirect:mostraUsuario";
+	}
+	
+	@RequestMapping("deletaPassagem")
+	public String DeletarPassagem(Viagem viagem, HttpSession sessao) throws ClassNotFoundException {
+		Usuario usuario = (Usuario)sessao.getAttribute("usuarioLogado");
+		new UsuarioDAO().DeletaPassagem(viagem.getId(), usuario.getid());
+		return "redirect:mostraUsuario";
 	}
 	
 	@RequestMapping("deletaUsuario")

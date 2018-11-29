@@ -86,6 +86,32 @@ public class UsuarioDAO {
 			}
 		}
 		
+		public void AdicionaPassagem(String Viagem_ID, String Usuario_ID) {
+			String Query = "INSERT INTO Passagens(Usuario_ID,Viagem_ID) VALUES(?,?)";
+			try {
+				PreparedStatement stmt = connection.prepareStatement(Query);
+				stmt.setString(1, Usuario_ID);
+				stmt.setString(2, Viagem_ID);
+				stmt.executeUpdate();
+				stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e);
+			}
+		}
+		
+		public void DeletaPassagem(String Viagem_ID,String Usuario_ID) {
+			String Query = "DELETE FROM Passagens WHERE Viagem_ID=? AND Usuario_ID=?";
+			try {
+				PreparedStatement stmt = connection.prepareStatement(Query);
+				stmt.setString(1, Viagem_ID);
+				stmt.setString(2, Usuario_ID);
+				stmt.executeUpdate();
+				stmt.close();
+			}catch(SQLException e) {
+				System.out.println(e);
+			}
+		}
+		
 		private String TestNULL(ResultSet Result, String Coluna) throws SQLException {
 			if(Result.wasNull()) {
 				return "";
